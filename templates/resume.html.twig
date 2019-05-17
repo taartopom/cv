@@ -1,0 +1,87 @@
+<section id="resume">
+    <div class="row education">
+        <div class="three columns header-col">
+            <h1><span>Expérience</span></h1>
+        </div>
+
+        <div class="nine columns main-col">
+            {% for experience in profile.getExperiences() %}
+                <div class="row item">
+                    <div class="twelve columns">
+                        <h3>
+                            {{ experience.getCompany() }}
+                        </h3>
+
+                        <p class="info">
+                            {{ experience.getJobName() }},
+                            {{ experience.getCity() }}
+                            <span>&bull;</span>
+                            <em class="date">
+                                {{ experience.getDuration() }}
+                            </em>
+                        </p>
+
+                        {% if experience.getDescription() %}
+                            <p>
+                                {{ experience.getDescription()|raw }}
+                            </p>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="row work">
+        <div class="three columns header-col">
+            <h1><span>Compétences</span></h1>
+        </div>
+
+        <div class="nine columns main-col">
+            <div class="bars">
+                <ul class="skills">
+                    {% for skill in profile.getSkills() %}
+                        <li>
+                            <span class="bar-expand" style="width:{{ skill.getPercentage() }}%"></span>
+                            <em>
+                                {{ skill.getName() }}
+                            </em>
+                        </li>
+                    {% endfor %}
+				</ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row skill">
+        <div class="three columns header-col">
+            <h1><span>Formation</span></h1>
+        </div>
+        <div class="nine columns main-col">
+            {% for formation in profile.getFormations() %}
+                <div class="row item">
+                    <div class="twelve columns">
+                        <h3>
+                            {{ formation.getDegree() }}
+                        </h3>
+
+                        <p class="info">
+                            {{ formation.getPlace() }},
+                            {{ formation.getCity() }}
+                            <span>&bull;</span>
+                            <em class="date">
+                                {{ formation.getDuration() }}
+                            </em>
+                        </p>
+
+                        {% if formation.getDescription() %}
+                            <p>
+                                {{ formation.getDescription() }}
+                            </p>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

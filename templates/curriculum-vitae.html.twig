@@ -1,0 +1,204 @@
+<style type="text/css">
+*,
+.text-light {
+	color: #838C95;
+}
+.text-darker {
+	color: #313131;
+}
+.text-dark {
+	color: #6E7881;
+}
+table {
+	width: 100%;
+}
+.informations .left {
+	width: 70%;
+}
+.informations .name {
+	font-size: 24pt;
+	font-weight: bold;
+}
+.informations .profession {
+	font-size: 20pt;
+	font-style: italic;
+	margin-top: 10mm;
+	margin-left: 25mm;
+	
+}
+.informations .right {
+	width: 30%;
+}
+.informations .right td {
+	padding-top: 1mm;
+	padding-bottom: 1mm;
+}
+
+.structure .left {
+	width: 15%;
+	font-weight: bold;
+}
+.structure .right {
+	width: 85%;
+}
+.structure .sub-left {
+	width: 70%;
+}
+.structure .sub-right {
+	width: 30%;
+	text-align: right;
+	vertical-align: top;
+}
+.structure .sub-left,
+.structure .sub-right {
+	padding-top: 2mm;
+}
+.description {
+	font-style: italic;
+	font-size: 12px;
+}
+.border {
+	height: 1px;
+	margin-top: 2mm;
+	background: #dddddd;
+}
+.stars {
+	padding-left: 10mm;
+}
+.star-off {
+	color: #a1b3c4;
+}
+.star-on {
+	color: #313131;
+}
+</style>
+<page style="font-size: 14px" backtop="5mm" backbottom="5mm" backleft="5mm" backright="5mm">
+	<table class="informations">
+		<tr>
+			<td class="left">
+				<span class="name text-darker">
+					{{ profile.getFullname() }}
+				</span>
+				<br>
+				<span class="profession text-dark">
+					{{ profile.getProfession() }}
+				</span>
+			</td>
+			<td class="right">
+				<table>
+					<tr>
+						<td>{{ profile.getAddress() }}</td>
+					</tr>
+					<tr>
+						<td>{{ profile.getZipcode() }} {{ profile.getCity() }}</td>
+					</tr>
+					<tr>
+						<td>{{ profile.getMobile() }}</td>
+					</tr>
+					<tr>
+						<td>{{ profile.getEmail() }}</td>
+					</tr>
+					<tr>
+						<td>{{ profile.getWebsite() }}</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+
+	<div class="border"></div>
+
+	<table class="structure">
+		<tr>
+			<td class="left text-dark">
+				Expériences
+			</td>
+			<td class="right">
+				{% for experience in profile.getExperiences() %}
+					<table>
+						<tr>
+							<td class="sub-left text-darker">
+				    			{{ experience.getJobName() }}
+				    			<span class="text-light">chez</span>
+				    			{{ experience.getCompany() }}
+				    			{% if experience.getDescription() %}
+				    				<br>
+							    	<span class="description">
+								        {{ experience.getDescription()|raw }}
+							        </span>
+							    {% endif %}
+							</td>
+							<td class="sub-right text-dark">
+						    	{{ experience.getCity() }},
+						    	{{ experience.getDuration() }}
+							</td>
+						</tr>
+					</table>
+				{% endfor %}
+			</td>
+		</tr>
+	</table>
+
+	<div class="border"></div>
+
+	<table class="structure skills">
+		<tr>
+			<td class="left text-dark">
+				Compétences
+			</td>
+			<td class="right">
+				<table>
+					{% for skill in profile.getSkills() %}
+						<tr>
+							<td class="text-darker">
+								{{ skill.getName() }}
+							</td>
+							<td class="stars">
+								{% for rate in 1..10 %}
+									<span class="star-{{ skill.getPercentage() / 10 >= rate ?  'on' : 'off' }}">
+										&bull;
+									</span>
+								{% endfor %}
+							</td>
+						</tr>
+					{% endfor %}
+				</table>
+			</td>
+		</tr>
+	</table>
+
+	<div class="border"></div>
+
+	<table class="structure">
+		<tr>
+			<td class="left text-dark">
+				Formations
+			</td>
+			<td class="right">
+				{% for formation in profile.getFormations() %}
+					<table>
+						<tr>
+							<td class="sub-left text-darker">
+				    			{{ formation.getDegree() }}
+				    			<br>
+				    			<span class="text-dark">
+				    				{{ formation.getPlace() }}
+				    			</span>
+				    			{% if formation.getDescription() %}
+				    				<br>
+							    	<span class="description">
+								        {{ formation.getDescription() }}
+							        </span>
+							    {% endif %}
+							</td>
+							<td class="sub-right text-dark">
+								{{ formation.getCity() }}
+								{{ formation.getDuration() }}
+							</td>
+						</tr>
+					</table>
+				{% endfor %}
+			</td>
+		</tr>
+	</table>
+</page>

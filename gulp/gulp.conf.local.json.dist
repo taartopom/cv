@@ -1,0 +1,11 @@
+{
+	"host" : "localhost:8000",
+	"browser": "google-chrome",
+	"paths" : [
+		"assets/**/*.js",
+		"assets/**/*.scss"
+	],
+	"scss"          : true,
+	"js"            : true,
+	"browserSync"   : true
+}

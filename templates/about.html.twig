@@ -1,0 +1,46 @@
+<section id="about">
+    <div class="row">
+        <div class="three columns">
+            <img class="profile-pic"  src="{{ asset('assets/images/profile.png') }}" alt="{{ profile.getFullname() }}" />
+        </div>
+
+        <div class="nine columns main-col">
+            <h2>À propos</h2>
+
+            <p>
+                {{ profile.getLongDescription()|raw }}
+            </p>
+
+            <div class="row">
+                <div class="columns contact-details">
+                    <h2>Mes coordonnées</h2>
+                    <p class="address">
+                        <span>
+                            {{ profile.getFullname() }}
+                        </span>
+                        <br>
+                        <span>
+                            {{ profile.getAddress() }}
+                            <br>
+                            {{ profile.getZipcode() }}
+                            {{ profile.getCity() }}
+                        </span>
+                        <br>
+                        <span>
+                            {{ profile.getMobile() }}
+                        </span>
+                    </p>
+                </div>
+
+                <div class="columns download">
+                    <p>
+                        <a href="{{ path('cv') }}" class="button">
+                            <i class="fa fa-download"></i>
+                            Téléchargez mon curriculum vitae
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

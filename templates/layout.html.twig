@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!--[if lt IE 8 ]><html class="no-js ie ie7" lang="fr"> <![endif]-->
+<!--[if IE 8 ]><html class="no-js ie ie8" lang="fr"> <![endif]-->
+<!--[if (gte IE 8)|!(IE)]><!--><html class="no-js" lang="fr"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<title>{{ profile.getFullname() }}</title>
+	<meta name="description" content="{{ profile.getShortDescription()|striptags }}">
+	<meta name="author" content="{{ profile.getFullname() }}">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="{{ profile.getFullname() }}" />
+	<meta property="og:description" content="{{ profile.getShortDescription()|striptags }}" />
+	<meta property="og:image" content="{{ absolute_url('assets/images/profile.jpg') }}" />
+	<link rel="stylesheet" href="{{ asset('libraries/ceevee/css/default.css') }}">
+	<link rel="stylesheet" href="{{ asset('libraries/ceevee/css/layout.css') }}">
+	<link rel="stylesheet" href="{{ asset('libraries/ceevee/css/media-queries.css') }}">
+	<link rel="stylesheet" href="{{ asset('libraries/ceevee/css/magnific-popup.css') }}">
+	<link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+	<link rel="shortcut icon" href="favicon.png" >
+</head>
+<body>
+	{% block body %}{% endblock %}
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="{{ asset('assets/js/main.min.js') }}"></script>
+</body>
+</html>

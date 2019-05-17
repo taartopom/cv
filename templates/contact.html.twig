@@ -1,0 +1,66 @@
+<section id="contact">
+    <div class="row section-head">
+        <div class="two columns header-col">
+            <h1><span>Contact</span></h1>
+        </div>
+        <div class="ten columns">
+            <p class="lead">
+                Laissez un message après le bip
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="eight columns">
+
+            {{ form_start(form, {'attr': {'id': 'contactForm', 'novalidate': 'novalidate'}}) }}
+                <fieldset>
+                    <div>
+                        {{ form_label(form.name) }}
+                        {{ form_widget(form.name) }}
+                    </div>
+                    <div>
+                        {{ form_label(form.email) }}
+                        {{ form_widget(form.email) }}
+                    </div>
+                    <div>
+                        {{ form_label(form.subject) }}
+                        {{ form_widget(form.subject) }}
+                    </div>
+                    <div>
+                        {{ form_label(form.message) }}
+                        {{ form_widget(form.message) }}
+                    </div>
+                    <div>
+                        <button type="submit" class="submit">Envoyer</button>
+                        <span id="image-loader">
+                            <img alt="" src="{{ asset('libraries/ceevee/images/loader.gif') }}">
+                        </span>
+                    </div>
+                </fieldset>
+            {{ form_end(form) }}
+
+            <div id="message-success">
+                <i class="fa fa-check"></i>
+                Votre message a bien été envoyé
+                <br>
+            </div>
+        </div>
+
+        <aside class="four columns footer-widgets">
+           <div class="widget widget_contact">
+                <h4>Coordonnées</h4>
+                <p class="address">
+					{{ profile.getFullname() }}
+                    <br>
+                    {{ profile.getAddress() }}
+                    <br>
+                    {{ profile.getZipcode() }}
+                    {{ profile.getCity() }}
+                    <br>
+                    <span>{{ profile.getMobile() }}</span>
+                </p>
+            </div>
+        </aside>
+    </div>
+</section>

@@ -1,0 +1,31 @@
+{
+	"javascriptsGroups" : {
+    	"public/assets/js/main.js" : [
+			"public/libraries/ceevee/js/modernizr.js",
+			"public/libraries/ceevee/js/jquery-migrate-1.2.1.min.js",
+			"public/libraries/ceevee/js/jquery.flexslider.js",
+			"public/libraries/ceevee/js/waypoints.js",
+			"public/libraries/ceevee/js/jquery.fittext.js",
+			"public/libraries/ceevee/js/magnific-popup.js",
+			"public/libraries/ceevee/js/init.js"
+        ]
+	},
+	"stylesheetsGroups" : [
+		{
+			"parent" : "assets/scss/main.scss",
+			"destination" : "public/assets/css/main.css",
+			"files" : [
+				"public/libraries/ceevee/css/default.css",
+				"public/libraries/ceevee/css/layout.css",
+				"public/libraries/ceevee/css/media-queries.css",
+				"public/libraries/ceevee/css/magnific-popup.css",
+				"assets/scss/main.scss"
+			]
+		}
+	],
+	"options" : {
+		"minifyCss" : {
+			"advanced": true
+		}
+	}
+}

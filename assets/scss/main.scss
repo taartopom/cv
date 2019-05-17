@@ -1,0 +1,36 @@
+ul#nav li.current a {
+	color: #767F94;
+}
+
+.popup-modal {
+	text-align: center;
+}
+
+.popup-modal img {
+	max-height: 600px;
+}
+
+.portfolio-item a {
+	height: 0;
+    padding-top: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#contactForm {
+	> fieldset > div {
+		position: relative;
+
+		.form-error {
+			position: absolute;
+			bottom: -30px;
+			margin-left: 26%;
+			color: #D72828;
+		}
+	}
+}
+
+#nav-wrap > a {
+	background-color: #767F94;
+}

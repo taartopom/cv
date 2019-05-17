@@ -1,0 +1,69 @@
+<header id="home" style="background-image:url({{ asset('assets/images/background.jpg') }})">
+    <nav id="nav-wrap">
+        <a class="mobile-btn" href="#nav-wrap" title="Afficher le menu">Afficher le menu</a>
+        <a class="mobile-btn" href="#" title="Cacher le menu">Cacher le menu</a>
+
+        <ul id="nav" class="nav">
+            <li class="current">
+                <a class="smoothscroll" href="#home">
+                    Accueil
+                </a>
+            </li>
+            <li>
+                <a class="smoothscroll" href="#about">
+                    À propos
+                </a>
+            </li>
+            <li>
+                <a class="smoothscroll" href="#resume">
+                    Expériences
+                </a>
+            </li>
+            <li>
+                <a class="smoothscroll" href="#portfolio">
+                    Portfolio
+                </a>
+            </li>
+            <li>
+                <a class="smoothscroll" href="#contact">
+                    Contact
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('cv') }}" target="_blank">
+                    curriculum vitae
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="row banner">
+        <div class="banner-text">
+            <h1 class="responsive-headline">
+                {{ profile.getFullname() }}
+            </h1>
+
+            <h3>
+                {{ profile.getShortDescription()|raw }}
+            </h3>
+
+            <hr />
+
+            <ul class="social">
+                {% for social in profile.getSocials() %}
+                    <li>
+                        <a href="{{ social.getLink() }}" title="{{ social.getTitle() }}" target="_blank">
+                            <i class="{{ social.getClassname() }}"></i>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <p class="scrolldown">
+        <a class="smoothscroll" href="#about">
+            <i class="icon-down-circle"></i>
+        </a>
+    </p>
+</header>

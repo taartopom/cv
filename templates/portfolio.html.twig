@@ -1,0 +1,46 @@
+<section id="portfolio">
+    <div class="row">
+        <div class="twelve columns collapsed">
+            <h1>Mes réalisations</h1>
+
+            <div id="portfolio-wrapper" class="bgrid-quarters s-bgrid-thirds cf">
+                {% for work in profile.getWorks() %}
+                    <div class="columns portfolio-item">
+                        <div class="item-wrap">
+                            <a href="#modal-{{ work.getId() }}" title="Afficher le détail" style="background-image:url({{ asset(work.getCoverPath()) }})">
+                                {#<img alt="{{ work.getTitle() }}" src="{{ asset(work.getCoverPath()) }}">#}
+                                <div class="overlay">
+                                    <div class="portfolio-item-meta">
+                                        <h5>{{ work.getTitle() }}</h5>
+                                        <p></p>
+                                    </div>
+                                </div>
+                                <div class="link-icon">
+                                    <i class="icon-plus"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        {% for work in profile.getWorks() %}
+            <div id="modal-{{ work.getId() }}" class="popup-modal mfp-hide">
+                <img class="scale-with-grid" src="{{ asset(work.getCoverPath()) }}" alt="" />
+                <div class="description-box">
+                    <h4>{{ work.getTitle() }}</h4>
+                    <p>{{ work.getDescription() }}</p>
+                </div>
+                <div class="link-box">
+                    {% if work.getLink() %}
+                        <a href="{{ work.getLink() }}" target="_blank">
+                            Accéder au site
+                        </a>
+                    {% endif %}
+                    <a class="popup-modal-dismiss">Fermer</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</section>
